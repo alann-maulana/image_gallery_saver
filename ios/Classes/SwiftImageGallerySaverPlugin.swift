@@ -3,7 +3,7 @@ import UIKit
 import Photos
 
 public class SwiftImageGallerySaverPlugin: NSObject, FlutterPlugin {
-    let errorMessage = "Failed to save, please check whether the permission is enabled"
+    let errorMessage = "保存失败,请检查权限是否开启"
     
     var result: FlutterResult?;
 
@@ -35,8 +35,6 @@ public class SwiftImageGallerySaverPlugin: NSObject, FlutterPlugin {
         } else {
             if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(path)) {
                 saveVideo(path, isReturnImagePath: isReturnFilePath)
-            }else{
-                self.saveResult(isSuccess:false,error:self.errorMessage)
             }
         }
       } else {
@@ -173,8 +171,6 @@ public class SwiftImageGallerySaverPlugin: NSObject, FlutterPlugin {
             || filename.hasSuffix(".PNG")
             || filename.hasSuffix(".gif")
             || filename.hasSuffix(".GIF")
-            || filename.hasSuffix(".heic")
-            || filename.hasSuffix(".HEIC")
     }
 }
 
